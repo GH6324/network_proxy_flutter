@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:basic_utils/basic_utils.dart';
+import 'package:crypto/crypto.dart';
 import 'package:network_proxy/network/util/cert/extension.dart';
 import 'package:network_proxy/network/util/cert/key_usage.dart' as x509;
 import 'package:pointycastle/asn1/unsupported_object_identifier_exception.dart';
@@ -21,6 +22,25 @@ class X509Generate {
   static const String COUNTRY_NAME = "2.5.4.6";
   static const String SERIAL_NUMBER = "2.5.4.5";
   static const String DN_QUALIFIER = "2.5.4.46";
+
+  ///android 系统证书名称
+  static String getSubjectHashName(Map<String, String?> subject) {
+    // Add Issuer
+    var issuerSeq = ASN1Sequence();
+    for (var k in subject.keys) {
+      var s = X509Generate._identifier(k, subject[k]!);
+      issuerSeq.add(s);
+    }
+    var derEncoded = issuerSeq.encode();
+    // Convert the hash to a long value
+    var hashBytes = md5.convert(derEncoded).bytes;
+    int hash = (hashBytes[0] & 0xff) |
+        ((hashBytes[1] & 0xff) << 8) |
+        ((hashBytes[2] & 0xff) << 16) |
+        ((hashBytes[3] & 0xff) << 24);
+    String hexString = hash.toRadixString(16).padLeft(8, '0');
+    return hexString;
+  }
 
   ///
   /// Generates a self signed certificate

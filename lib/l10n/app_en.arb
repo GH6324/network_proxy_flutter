@@ -198,7 +198,7 @@
   "trustCaDescribe": "Trust CA Setting > General > About > Certificate Trust Setting",
   "androidRoot": "System Certificate (ROOT Device)",
   "androidRootMagisk": "Magisk module: \nAndroid ROOT devices can be used Magisk ProxyPinCA System Certificate Module, After installing and restarting the phone Check the system certificate to see if there is a ProxyPinCA certificate. If there is, it indicates that the certificate has been successfully installed。",
-  "androidRootRename": "If the module does not take effect, you can install the system root certificate according to the online tutorial, and name the root certificate 243f0bfb.0",
+  "androidRootRename": "If the module does not take effect, you can install the system root certificate according to the online tutorial, and name the root certificate {name}",
   "androidRootCADownload": "Download System Certificate(.0)",
   "androidUserCA": "User Certificate",
   "androidUserCATips": "Tips: Android7+ many apps will not trust user certificates",
@@ -237,7 +237,7 @@
   "notConnected": "Not connected",
   "disconnect": "Disconnect",
   "ipLayerProxy": "IP Layer Proxy(Beta)",
-  "ipLayerProxyDesc": "IP layer proxy can capture Flutter app requests, currently not very stable",
+  "ipLayerProxyDesc": "IP layer proxy can capture Flutter app requests, currently not very stable, welcome to submit PR",
   "inputAddress": "Input Address",
   "syncConfig": "Sync configuration",
   "pullConfigFail": "Failed to pull configuration, please check the network connection",
@@ -248,8 +248,8 @@
 
   "windowMode": "Window Mode",
   "windowModeSubTitle": "Enabled Packet Capture, Enter the background, Display a small window",
-  "windowIcon": "Window shortcut icon",
-  "windowIconDescribe": "Show quick access to small window Icon",
+  "pipIcon": "Window shortcut icon",
+  "pipIconDescribe": "Show quick access to small window Icon",
   "headerExpanded": "Headers Expanded",
   "headerExpandedSubtitle": "Details page Headers is expanded by default",
   "bottomNavigation": "Bottom Navigation",
@@ -284,7 +284,16 @@
   "gray" : "Gray",
   "underline" : "Underline",
 
-  "requestBlock": "Request Block"
+  "requestBlock": "Request Block",
 
-
+  "other": "Other",
+  "certHashName": "CA Hash Name",
+  "systemCertName": "System Certificate Name",
+  "qrCode": "QR Code",
+  "scanQrCode": "Scan QR Code",
+  "generateQrCode": "Generate",
+  "saveImage": "Save Image",
+  "selectImage": "Select Image",
+  "inputContent": "Input Content",
+  "errorCorrectLevel": "Error Correct"
 }

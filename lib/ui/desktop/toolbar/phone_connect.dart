@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:network_proxy/network/bin/server.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// @author wanghongen
 /// 2023/10/8
@@ -62,11 +62,9 @@ class _PhoneConnectState extends State<PhoneConnect> {
               children: [
                 if (widget.proxyServer.isRunning)
                   QrImageView(
-                    backgroundColor: Colors.white,
-                    data: "proxypin://connect?host=$host&port=${widget.proxyServer.port}",
-                    version: QrVersions.auto,
-                    size: 200.0,
-                  )
+                      backgroundColor: Colors.white,
+                      data: "proxypin://connect?host=$host&port=${widget.proxyServer.port}",
+                      size: 200.0)
                 else
                   SizedBox(
                       height: 200,

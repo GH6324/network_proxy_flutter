@@ -107,6 +107,16 @@ class CertificateManager {
     return csrPem;
   }
 
+  /// 获取证书主题hash
+  static Future<String> systemCertificateName() async {
+    if (_state != StartState.initialized) {
+      await initCAConfig();
+    }
+
+    var subject = caCert.tbsCertificate!.subject;
+    return '${X509Generate.getSubjectHashName(subject)}.0';
+  }
+
   //重新生成根证书
   static Future<void> generateNewRootCA() async {
     if (_state != StartState.initialized) {
